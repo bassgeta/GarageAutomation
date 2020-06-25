@@ -23,12 +23,11 @@ export const App = () => {
     <AppStyled>
       <GlobalStyle />
       <GoogleLogin
-        clientId="179088557964-4sedddb9t0uo74a9n7tbtmci5tpc38re.apps.googleusercontent.com"
+        clientId={process.env.GCLIENT}
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-        responseType="code"
+        accessType="offline"
         isSignedIn={true}
       />
     </AppStyled>
