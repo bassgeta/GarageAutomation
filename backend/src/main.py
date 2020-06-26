@@ -11,6 +11,4 @@ def read_root():
 
 @app.get("/authorize")
 def authorize_google_user(Authorization: str = Header(None)):
-    print(Authorization)
-    authorizer(Authorization)
-    return {"Hello": "World"}
+    return authorizer(Authorization)
