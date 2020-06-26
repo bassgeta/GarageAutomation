@@ -1,6 +1,9 @@
 import React from 'react'
+import { RecoilRoot } from 'recoil'
 import styled, { createGlobalStyle } from 'styled-components'
-import { GoogleLogin } from 'react-google-login'
+
+import { theme } from '../theme'
+import { Main } from './Main'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,23 +16,15 @@ const AppStyled = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: ${theme.colors.darkGray};
 `
 export const App = () => {
-  console.log('ma kaj222111')
-  const responseGoogle = res => {
-    console.log('the res', res)
-  }
   return (
-    <AppStyled>
-      <GlobalStyle />
-      <GoogleLogin
-        clientId={process.env.GCLIENT}
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        accessType="offline"
-        isSignedIn={true}
-      />
-    </AppStyled>
+    <RecoilRoot>
+      <AppStyled>
+        <GlobalStyle />
+        <Main />
+      </AppStyled>
+    </RecoilRoot>
   )
 }
